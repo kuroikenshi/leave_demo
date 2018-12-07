@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>请假系统-申请请假</title>
+	<link rel="stylesheet" href="vendor/weui/1.1.3/weui.min.css">
+	<link rel="stylesheet" href="vendor/jquery-weui-1.2.1/jquery-weui.min.css">
+	<link rel="stylesheet" href="assets/css/weui-my.css">
+	
+	<style>
+	</style>
+</head>
+<body>
+	<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+
+	<div class="container" id="container">
+		<div class="page searchbar js_show">
+			<div class="page__hd banner-bg">
+				<h1 class="page__title">添加假条</h1>
+				<!-- <p class="page__desc">考勤系统</p> -->
+			</div>
+			
+			<div class="weui-cells__title">
+				<p>申请类型</p>
+			</div>
+			<div class="weui-cells weui-cells_form">
+				<a class="weui-cell weui-cell_access" href="javascript: void(0);">
+					<div class="weui-cell__hd"><label class="weui-label">请假类别</label></div>
+					<div class="weui-cell__bd">
+						<input type="text" class="weui-input fake-leaveType" placeholder="请点击选择类别" readonly />
+						<input type="hidden" class="weui-input" name="leaveType" />
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+				<a class="weui-cell weui-cell_access" href="javascript: void(0);">
+					<div class="weui-cell__hd"><label class="weui-label">申请类别</label></div>
+					<div class="weui-cell__bd">
+						<input type="text" class="weui-input" name="appliUuid" placeholder="请点击选择类别" readonly />
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+			</div>
+			
+			<div class="weui-cells__title">
+				<p>时间范围</p>
+			</div>
+			<div class="weui-cells weui-cells_form">
+				<a class="weui-cell weui-cell_access" href="javascript: void(0);">
+					<div class="weui-cell__hd"><label class="weui-label">开始时间</label></div>
+					<div class="weui-cell__bd">
+						<input type="text" class="weui-input" name="startTime" placeholder="请点击选择开始时间" />
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+				<a class="weui-cell weui-cell_access" href="javascript: void(0);">
+					<div class="weui-cell__hd"><label class="weui-label">结束时间</label></div>
+					<div class="weui-cell__bd">
+						<input type="text" class="weui-input" name="endTime" placeholder="请点击选择结束时间" />
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<label class="weui-label">小时数</label>
+					</div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" type="tel" placeholder="请选择开始和结束时间" readonly />
+					</div>
+				</div>
+					
+			</div>
+				
+			<div class="weui-cells__title">
+				<p>请假详情</p>
+			</div>
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell">
+					<div class="weui-cell__bd">
+						<textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+						<div class="weui-textarea-counter"><span>0</span>/200</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <script src="vendor/weuijs/1.1.4/weui.fixed.js"></script> -->
+	<script src="vendor/jquery/jquery-3.3.1.min.js"></script>
+	<script src="vendor/jquery-weui-1.2.1/jquery-weui.js"></script>
+	<script src="assets/js/common.js"></script>
+	
+	<script>
+		var yearsAllow = [];
+		var now = new Date();
+		var nowYear = now.getFullYear();
+		for (var i = -1; i <= 1; i++) {
+			yearsAllow.push(nowYear + i);
+		}
+		// 开始时间-初始化
+		$('input[name=startTime]').datetimePicker({
+			years: yearsAllow,
+			onChange: function (pickerInstance, values) {
+				console.log('change', pickerInstance, values);
+			}
+		});
+		
+		// 结束时间-初始化
+		$('input[name=endTime]').datetimePicker({
+			years: yearsAllow,
+			onChange: function (pickerInstance, values) {
+				console.log('change', pickerInstance, values);
+			}
+		});
+		
+		var leaveCascade = [{
+			label: '请假',
+			value: 1,
+			children: [{
+					label: '年假',
+					value: 1
+				}, {
+					label: '病假',
+					value: 2
+				}, {
+					label: '产检假',
+					value: 24
+				}, {
+					label: '陪产假',
+					value: 25
+				}, {
+					label: '倒休',
+					value: 3
+				}, {
+					label: '事假',
+					value: 4
+				}, {
+					label: '婚假',
+					value: 5
+				}, {
+					label: '产假',
+					value: 6
+				}, {
+					label: '丧假',
+					value: 7
+				}
+			]
+		}, {
+			label: '加班',
+			value: 2,
+			children: [
+				{
+					label: '存休',
+					value: 9
+				}, {
+					label: '加班费',
+					value: 11
+				}
+			]
+		}, {
+			label: '外出',
+			value: 3,
+			children: [
+				{
+					label: '上班不能按时打卡',
+					value: 10
+				}, {
+					label: '下班不能按时打卡',
+					value: 16
+				}, {
+					label: '都不能按时打卡',
+					value: 17
+				}
+			]
+		}];
+		
+		// 请假类别-初始化
+		$('.fake-leaveType').picker({
+			cols: [{
+				textAlign: 'center',
+				values: [1, 2, 3],
+				displayValues: ['请假', '加班', '外出']
+			}],
+			onChange: function (pickerInstance, values) {
+				console.log('change>>>', pickerInstance, values);
+			}
+		});
+		
+		 	
+		// 请假类别
+		function pickerSelectLeaveType() {
+			var $input = $(event.target);
+			console.log($input[0].outerHTML);
+			
+			weui.picker(, {
+				title: 'title',
+				className: 'leave-type-picker',
+				container: 'body',
+				defaultValue: [1, 3],
+				onChange: function (result) {
+					console.log(result);
+					$input.val(result[0].label + ' - ' + result[1].label);
+					$input.parent().find('input[name=leaveType]').val(result[0].value);
+					$input.parent().find('input[name=appliUuid]').val(result[1].value);
+				},
+				onConfirm: function (result) {
+					console.log(result);
+					$input.val(result[0].label + ' - ' + result[1].label);
+					$input.parent().find('input[name=leaveType]').val(result[0].value);
+					$input.parent().find('input[name=appliUuid]').val(result[1].value);
+				},
+				id: 'leaveTypePicker'
+			});
+		}
+	</script>
+</body>
+</html>
+
+
