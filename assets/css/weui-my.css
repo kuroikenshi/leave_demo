@@ -12,10 +12,21 @@ body {
 	font-family: -apple-system-font,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
+/* weui.css用遮罩 */
 .weui-mask {
-	background: transparent;
+	background: rgba(0, 0, 0, 0.3);
 	visibility: visible;
 }
+/* jquery.weui.css用遮罩 */
+/* .weui-picker-container {
+	background: rgba(0, 0, 0, 0.3);
+	height: 100%;
+	-webkit-animation:fadeIn ease .3s forwards;
+	animation:fadeIn ease .3s forwards;
+} */
+/* .weui-picker-container + .weui-picker-container {
+	background: rgba(0, 0, 0, 0);
+} */
 
 /* .weui-grids {
 	background: #fff;
@@ -70,4 +81,12 @@ body {
 .weui-btn_primary:not(.weui-btn_disabled):active {
 	color: hsla(0,0%,100%,.6);
 	background-color: #00ad85;
+}
+
+/* weui-cells容器上方去掉画线 */
+.weui-cells.no-line:after,
+.weui-cells.no-line:before {
+	height: 0px;
+	content: "";
+	position: initial;
 }

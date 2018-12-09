@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>请假系统-申请请假</title>
+	<title>请假系统-申请请假-步骤模式</title>
 	<link rel="stylesheet" href="vendor/weui/1.1.3/weui.min.css">
 	<link rel="stylesheet" href="vendor/jquery-weui-1.2.1/jquery-weui.min.css">
 	<link rel="stylesheet" href="assets/css/weui-my.css">
@@ -18,7 +18,7 @@
 	<div class="container" id="container">
 		<div class="page searchbar js_show">
 			<div class="page__hd banner-bg">
-				<h1 class="page__title">添加假条</h1>
+				<h1 class="page__title">添加假条-步骤模式</h1>
 				<!-- <p class="page__desc">考勤系统</p> -->
 			</div>
 			
@@ -39,6 +39,19 @@
 					<div class="weui-cell__bd">
 						<!-- <input type="text" class="weui-input fake-appliUuid" placeholder="请点击选择类别" readonly /> -->
 						<input type="hidden" class="weui-input" name="appliUuid" />
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+			</div>
+			
+			<div class="weui-cells__title">
+				<p>快捷步骤(正式情况下隐藏)</p>
+			</div>
+			<div class="weui-cells weui-cells_form">
+				<a class="weui-cell weui-cell_access" href="javascript: void(0);">
+					<!-- <div class="weui-cell__hd"><label class="weui-label"></label></div> -->
+					<div class="weui-cell__bd">
+						<input type="text" class="weui-input quick-steps" placeholder="快捷步骤" readonly />
 					</div>
 					<div class="weui-cell__ft"></div>
 				</a>
@@ -101,15 +114,57 @@
 	<script src="assets/js/common.js"></script>
 	
 	<script>
+		let stepMode = true;	// 确保每步只自动触发一次
+		
 		let yearsAllow = [];
 		let now = new Date();
 		let nowYear = now.getFullYear();
 		for (let i = -1; i <= 1; i++) {
 			yearsAllow.push(nowYear + i);
 		}
+		
+		var formatNumber = function (n) {
+			return n < 10 ? "0" + n : n;
+		}
+		
 		// 开始时间-初始化
 		$('input[name=startTime]').datetimePicker({
 			years: yearsAllow,
+			times: function () {
+				return [  // 自定义的时间
+					{
+						values: (function () {
+							var hours = [];
+							for (var i=0; i<24; i++) hours.push(formatNumber(i));
+							return hours;
+						})()
+					},
+					{
+						divider: true,  // 这是一个分隔符
+						content: ':'
+					},
+					{
+						values: (function () {
+							var minutes = ['00', '30'];
+							// for (var i=0; i<60; i++) minutes.push(formatNumber(i));
+							return minutes;
+						})()
+					}
+				];
+			},
+			onOpen: function(pickerInstance, b, c, d) {
+				console.log('opend', pickerInstance, b, c, d);
+				// pickerInstance.open();
+				// $('input[name=startTime]').trigger('change');
+			},
+			onClose: function(a, b, c, d) {
+				if (stepMode) {
+					requestAnimationFrame(function() {
+						$('input[name=endTime]').trigger('click');
+					});
+				}
+				console.log(a, b, c, d)
+			},
 			onChange: function (pickerInstance, values) {
 				console.log('change', pickerInstance, values);
 				calculateHours();
@@ -119,9 +174,39 @@
 		// 结束时间-初始化
 		$('input[name=endTime]').datetimePicker({
 			years: yearsAllow,
+			times: function () {
+				return [  // 自定义的时间
+					{
+						values: (function () {
+							var hours = [];
+							for (var i=0; i<24; i++) hours.push(formatNumber(i));
+							return hours;
+						})()
+					},
+					{
+						divider: true,  // 这是一个分隔符
+						content: ':'
+					},
+					{
+						values: (function () {
+							var minutes = ['00', '30'];
+							// for (var i=0; i<60; i++) minutes.push(formatNumber(i));
+							return minutes;
+						})()
+					}
+				];
+			},
+			onClose: function() {
+				if (stepMode) {
+					requestAnimationFrame(function() {
+						$.alert('<strong>目标：便捷操作</strong><br/>1.请假<br/>2.倒休<br/>3.日期<br/>(日期单独选择，使用日期选择器，提供快选项。<br/>快捷项: 请一天，请上午，请下午，取消)<br/>4.时间(修改或确定)<br/>5.理由(提供快捷项)');
+					});
+				}
+			},
 			onChange: function (pickerInstance, values) {
 				console.log('change', pickerInstance, values);
 				calculateHours();
+				stepMode = false;
 			}
 		});
 		
@@ -260,6 +345,13 @@
 				textAlign: 'center',
 				values: leaveType_displayValues
 			}],
+			onClose: function() {
+				if (stepMode) {
+					requestAnimationFrame(function() {
+						$('.fake-appliUuid').trigger('click');
+					});
+				}
+			},
 			onChange: function (pickerInstance, values) {
 				// 每次显示值更新,同步修改实际值
 				$leaveType.val(leaveType_valueMap[values[0]]);
@@ -273,6 +365,13 @@
 						textAlign: 'center',
 						values: appliUuid_displayValuesMap[$leaveType.val()]
 					}],
+					onClose: function() {
+						if (stepMode) {
+							requestAnimationFrame(function() {
+								$('input[name=startTime]').trigger('click');
+							});
+						}
+					},
 					onChange: function (pickerInstance, values) {
 						$appliUuid.val(appliUuid_valueMap[values[0]]);
 						calculateHours();
@@ -300,6 +399,12 @@
 				});
 			}
 		}
+	
+		$(function() {
+			requestAnimationFrame(function() {
+				$('.fake-leaveType').trigger('click');
+			});
+		})
 	</script>
 </body>
 </html>
