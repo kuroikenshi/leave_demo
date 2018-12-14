@@ -6,6 +6,7 @@ body {
 	font-family: -apple-system-font,Helvetica Neue,Helvetica,Arial,sans-serif;
 	background-color: #fbf9fe;
 	touch-action: none; /* 解决datetimePicker滚动报错。https://blog.csdn.net/m0_38082783/article/details/78123323 */
+  font-size: 14px;
 }
 
 .weui-textarea {
@@ -37,8 +38,32 @@ body {
 .weui-grid {
 	background: #fff;
 }
+.weui-grids:after,
+.weui-grids:before {
+  z-index: 1;
+}
+
 
 /* === 通用 === */
+.container, .page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.container {
+  overflow: hidden;
+}
+
+.weui-tab__panel {
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 50px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .pull-right {
 	float: right;
 }
@@ -89,4 +114,13 @@ body {
 	height: 0px;
 	content: "";
 	position: initial;
+}
+
+/* weui-cell 每个右侧不顶头 */
+.line-right-not-reach .weui-cell:before {
+	right: 15px;
+}
+
+.weui-cells {
+  font-size: 15px;
 }

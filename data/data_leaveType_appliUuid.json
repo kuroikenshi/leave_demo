@@ -1,0 +1,57 @@
+{
+	"data": [{
+		"label": "请假",
+		"value": 1,
+		"children": [{
+			"label": "年假",
+			"value": 1
+		}, {
+			"label": "病假",
+			"value": 2
+		}, {
+			"label": "产检假",
+			"value": 24
+		}, {
+			"label": "陪产假",
+			"value": 25
+		}, {
+			"label": "倒休",
+			"value": 3
+		}, {
+			"label": "事假",
+			"value": 4
+		}, {
+			"label": "婚假",
+			"value": 5
+		}, {
+			"label": "产假",
+			"value": 6
+		}, {
+			"label": "丧假",
+			"value": 7
+		}]
+	}, {
+		"label": "加班",
+		"value": 2,
+		"children": [{
+			"label": "存休",
+			"value": 9
+		}, {
+			"label": "加班费",
+			"value": 11
+		}]
+	}, {
+		"label": "外出",
+		"value": 3,
+		"children": [{
+			"label": "上班不能按时打卡",
+			"value": 10
+		}, {
+			"label": "下班不能按时打卡",
+			"value": 16
+		}, {
+			"label": "都不能按时打卡",
+			"value": 17
+		}]
+	}]
+}
