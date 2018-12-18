@@ -8,81 +8,15 @@
   <link rel="stylesheet" href="vendor/weui/1.1.3/weui.min.css">
   <link rel="stylesheet" href="vendor/jquery-weui-1.2.1/jquery-weui.min.css">
   <link rel="stylesheet" href="assets/css/weui-my.css">
-  
-  <style>
-    .close-pop-btn {
-      /* float: right; */
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      vertical-align: middle;
-      text-align: center;
-      font-size: 28px;
-      margin: 5px;
-    }
-    
-    .card {
-      border: 1px solid #e5e5e5;
-      border-radius: 5px;
-      background: #fff;
-      margin: 8px;
-      overflow: hidden;
-      box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.05);
-    }
-    .card__hd {
-      /* padding: 5px 20px; */
-    }
-    /* .title {
-      font-size: 15px;
-    } */
-    
-    .status {
-      color: #09B78D;
-      border: 1px solid #09B78D;
-      border-radius: 5px;
-      font-size: 14px;
-      padding: 2px 8px;
-    }
-    
-    .weui-cells.no-top-line:before {
-      content: unset;
-    }
-    
-    .paragraph {
-      text-indent: 2em;
-    }
-    .right {
-      float: right;
-      position: relative;
-      bottom: 90px;
-      right: 13px;
-      width: 95px;
-      height: 80px;
-      line-height: 80px;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 38px;
-      background: #fff;
-      z-index: 2;
-    }
-    .hours {
-      color: darkorange;
-    }
-    .hours:after {
-      content: "h";
-    }
-  </style>
 </head>
 <body>
   <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
 
   <div class="container" id="container">
     <div class="page searchbar js_show">
-      <div class="page__hd banner-bg">
+      <!-- <div class="page__hd banner-bg">
         <h1 class="page__title">添加假条</h1>
-        <!-- <p class="page__desc">考勤系统</p> -->
-      </div>
+      </div> -->
       
       <form id="leaveForm">
         <!-- 申请类型 -->
@@ -90,7 +24,7 @@
           <p>申请类型</p>
         </div>
         <div class="weui-cells weui-cells_form">
-          <a class="weui-cell weui-cell_access" href="javascript: void(0);">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);">
             <div class="weui-cell__hd"><label class="weui-label">请假类别</label></div>
             <div class="weui-cell__bd">
               <input type="text" class="weui-input fake-leaveType" placeholder="请点击选择类别" readonly />
@@ -98,7 +32,7 @@
             </div>
             <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
           </a>
-          <a class="weui-cell weui-cell_access" href="javascript: void(0);" onclick="selectAppliUuid();">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);" onclick="selectAppliUuid();">
             <div class="weui-cell__hd"><label class="weui-label">申请类别</label></div>
             <div class="weui-cell__bd">
               <input type="hidden" class="weui-input" name="appliUuid" id="appliUuid" required tips="请选择申请类别" />
@@ -114,7 +48,7 @@
           <p>时间范围</p>
         </div>
         <div class="weui-cells weui-cells_form">
-          <a class="weui-cell weui-cell_access" href="javascript: void(0);">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);">
             <div class="weui-cell__hd"><label class="weui-label">开始时间</label></div>
             <div class="weui-cell__bd">
               <input type="text" class="weui-input" name="startTime" id="startTime" placeholder="请点击选择开始时间" required tips="请选择开始时间" />
@@ -123,7 +57,7 @@
               <i class="weui-icon-warn"></i>
             </div>
           </a>
-          <a class="weui-cell weui-cell_access" href="javascript: void(0);">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);">
             <div class="weui-cell__hd"><label class="weui-label">结束时间</label></div>
             <div class="weui-cell__bd">
               <input type="text" class="weui-input" name="endTime" id="endTime" placeholder="请点击选择结束时间" required tips="请选择结束时间" />
@@ -139,13 +73,13 @@
           <p>请假详情</p>
         </div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell">
+          <div class="weui-cell invalid-event-handler">
             <div class="weui-cell__bd">
-              <textarea class="weui-textarea" name="reason" id="reason" placeholder="请输入文本" rows="3" required tips="请输入理由"></textarea>
+              <textarea class="weui-textarea" name="reason" id="reason" pattern="^.{1,200}$" count-limit-max="200" placeholder="请输入文本" rows="3" required tips="请输入请假详情,最大200个字符长度"></textarea>
               <div class="weui-textarea-counter">
             <!-- <div class="weui-cell__ft"> -->
             <!-- </div> -->
-                <span>0</span>/200
+                <span class="now-count"></span>/<span class="count-limit"></span>
                 <i class="weui-icon-warn"></i>
               </div>
             </div>
@@ -156,7 +90,7 @@
         <div class="weui-cells no-line">
           <div class="weui-cell">
             <div class="weui-cell__bd">
-              <a href="javascript: void(0);" class="weui-btn weui-btn_primary" onclick="preview();">预览并提交请假</a>
+              <a href="javascript: void(0);" class="weui-btn weui-btn_primary" onclick="validate();">预览并提交请假</a>
             </div>
           </div>
         </div>
@@ -198,16 +132,11 @@
             <button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:" onclick="submit();">提交申请</button>
             <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:" onclick="$.closePopup();">取消</a>
         </div>
-
+      </div>
     </div>
-    
-    <!-- <div class="weui-dialog__ft">
-      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">辅助操作</a>
-      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">主操作</a>
-    </div> -->
   </div>
 
-	<script src="vendor/weuijs/1.1.4/weui.js"></script>
+  <script src="vendor/weuijs/1.1.4/weui.js"></script>
   <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
   <script src="vendor/jquery.serializejson/jquery.serializejson.min.js"></script>
   <script src="vendor/jquery-weui-1.2.1/jquery-weui.js"></script>
@@ -274,12 +203,41 @@
     // 校验申请类别
     function selectAppliUuid() {
       if (!$leaveType.val()) {
-        $.notification({
+        /* $.notification({
           title: "提示",
           text: "请先选择“请假类别”!"
+        }); */
+        weui.topTips('请先选择“请假类别”!', {
+        	duration: 5000,
+        	callback: function callback() {
+        		console.log('on shown callback');
+        	}
         });
       }
     }
+    
+    // 初始化所有多行文本的文本计数器
+    $('.weui-textarea').each(function() {
+      var $t = $(this);
+      var $c = $t.parent().find('.now-count');
+      var $cl = $t.parent().find('.count-limit');
+      var countLimit = $t.attr('count-limit-max');
+      var count = $t.val().length;
+      $c.html(count);
+      $cl.html(countLimit);
+      
+      $t.on('input', function() {
+        count = $t.val().length;
+        $c.html(count);
+        
+        if (count > countLimit) {
+          $c.css('color', 'red');
+        } else {
+          $c.css('color', 'inherit');
+        }
+      });
+    });
+    
     
     var yearsAllow = [];
     var now = new Date();
@@ -303,43 +261,58 @@
       }
     });
     
-    // 预览的方法
-    function preview() {
+    // 校验方法
+    function validate() {
       // 校验
       weui.form.validate('#leaveForm', function (error) {
-	      console.log(error);
-        $(error.ele).closest('a').one('click', function() {
-          $(this).removeClass('weui-cell_warn');
-        });
-	      // return true; // 当return true时，不会显示错误
+        console.log(error, !!error);
+        // 有错
+        if (!!error) {
+          weui.topTips($(error.ele).attr('tips'), {
+            duration: 5000,
+            callback: function callback() {
+              console.log('on shown callback');
+            }
+          });
+          
+          $(error.ele).closest('.invalid-event-handler').one('click', function() {
+            $(this).removeClass('weui-cell_warn');
+          });
+        }
+        // 无错
+        else {
+          popup_preview();
+        }
       });
-      
-      
+    }
+    
+    // 弹出预览层
+    function popup_preview() {
       var $form = $(event.target).closest('form');
       var dataArr = $form.serializeArray();
       $.each(dataArr, function(idx) {
-        var name = dataArr[idx].name;
-        var val = dataArr[idx].value;
-        // 针对leaveType, appliUuid的特殊处理
-        if (['leaveType', 'appliUuid'].indexOf(name) != -1) {
-          $('[prefor=' + name + ']').html($('.fake-' + name).val());
-        }
-        // 其他
-        else {
-          $('[prefor=' + name + ']').html(val);
-        }
+      	var name = dataArr[idx].name;
+      	var val = dataArr[idx].value;
+      	// 针对leaveType, appliUuid的特殊处理
+      	if (['leaveType', 'appliUuid'].indexOf(name) != -1) {
+      		$('[prefor=' + name + ']').html($('.fake-' + name).val());
+      	}
+      	// 其他
+      	else {
+      		$('[prefor=' + name + ']').html(val);
+      	}
       });
       
       // TODO: 计算时间-由后台给
       $.ajax({
-        method: 'get',
-        url: 'data/data_getHours.json',
-        success: function(r) {
-          // 模拟异步延时
-          setTimeout(function() {
-            $('[prefor=hours]').html(r.hours);
-          }, 1000);
-        }
+      	method: 'get',
+      	url: 'data/data_getHours.json',
+      	success: function(r) {
+      		// 模拟异步延时
+      		setTimeout(function() {
+      			$('[prefor=hours]').html(r.hours);
+      		}, 1000);
+      	}
       });
       
       $("#preview").popup();
@@ -351,10 +324,37 @@
       console.log(data);
       
       var loading = weui.loading('提交中...');
-      setTimeout(function () {
-        loading.hide();
-        weui.toast('提交成功', 3000);
-      }, 1500);
+      
+      // TODO: 发送数据
+      $.ajax({
+        method: 'get',
+        url: ['data/data_applyLeave_success.json', 'data/data_applyLeave_failed.json'][Math.round(Math.random())],
+        success: function(data) {
+          if (data.status === 'OK') {
+            weui.toast('申请成功', 3000);
+            $.closePopup();
+            
+            setTimeout(function() {
+              location.href = 'homepage.html';
+            }, 3000);
+          }
+          else {
+            weui.topTips('申请失败: ' + data.msg, {
+              duration: 10000
+            });
+          }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          weui.topTips('提交失败: ' + errorThrown, {
+            duration: 10000
+          });
+        },
+        complete: function() {
+          loading.hide();
+        }
+      });
+      
+      
     }
   </script>
 </body>

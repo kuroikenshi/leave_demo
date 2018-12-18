@@ -18,6 +18,13 @@ body {
 	background: rgba(0, 0, 0, 0.3);
 	visibility: visible;
 }
+/* weui.css和jquery-weui.css冲突部分 */
+.weui-dialog,
+.weui-toast {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* jquery.weui.css用遮罩 */
 /* .weui-picker-container {
 	background: rgba(0, 0, 0, 0.3);
@@ -123,4 +130,55 @@ body {
 
 .weui-cells {
   font-size: 15px;
+}
+
+.weui-toptips {
+  opacity: 1;
+}
+
+.weui-panel__hd .weui-media-box__title {
+  color: #000;
+}
+
+.pull-right {
+  float: right;
+}
+
+.weui-cell__row {
+  height: 25px;
+  line-height: 25px;
+}
+
+.status {
+  color: #fff;
+  background-color: #aaa;
+  /* color: #999;
+  border: 1px solid #999; */
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 0px 8px;
+  float: right;
+}
+.status-success,
+.bg-green {
+  background-color: #09B78D;
+}
+.bg-blue {
+  background-color: #10AEFF;
+}
+.status-warn,
+.bg-orange {
+  background-color: #f90;
+}
+.status-danger,
+.bg-red {
+  background-color: #f00;
+}
+
+.hours:after {
+  content: " h";
+}
+
+.weui-swiped-btn_success {
+  background-color: #09B78D
 }

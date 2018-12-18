@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>我的假单</title>
+		<link rel="stylesheet" href="vendor/weui/1.1.3/weui.min.css">
+		<link rel="stylesheet" href="vendor/jquery-weui-1.2.1/jquery-weui.min.css">
+		<link rel="stylesheet" href="assets/css/weui-my.css">
+
+		<style>
+      .weui-cell__row {
+        padding: 0 15px;
+      }
+      .weui-cell__row:first-child {
+        padding-top: 10px;
+      }
+      .weui-cell__row:last-child {
+        padding-bottom: 10px;
+      }
+      
+      .weui-swiped-btn {
+        height: 50px;
+        line-height: 50px;;
+      }
+		</style>
+	</head>
+	<body>
+		<div class="container" id="container">
+			<div class="page searchbar js_show">
+				<!-- <div class="page__hd banner-bg">
+					<h1 class="page__title">我的假单</h1>
+				</div> -->
+
+				<div class="page__bd">
+					<!-- <div class="weui-cells__title">带图标、说明的列表项</div> -->
+					<div class="weui-cells">
+            <div class="weui-cell weui-cell_swiped">
+            	<div class="weui-cell__bd">
+            		<div class="weui-cell__row">
+            			<span prefor="leaveType">外出</span> - <span prefor="appliUuid">都不能按时打卡</span>
+            			<span class="status status-warn">待审批</span>
+            		</div>
+            		<div class="weui-cell__row" style="clear: both;">
+            			<span prefor="startTime">2018-12-12 09:00</span>
+            			<span class="pull-right hours" prefor="hours">8</span>
+            		</div>
+            	</div>
+            	<div class="weui-cell__ft">
+                <a class="weui-swiped-btn bg-blue" href="javascript:" >修改</a>
+                <a class="weui-swiped-btn bg-orange" href="javascript:" >撤销</a>
+                <a class="weui-swiped-btn bg-green" href="javascript:" >销假</a>
+                <a class="weui-swiped-btn bg-red" href="javascript:" >删除</a>
+            	</div>
+            </div>
+						<div class="weui-cell weui-cell_swiped">
+							<div class="weui-cell__bd">
+								<div class="weui-cell__row">
+                  <span prefor="leaveType">外出</span> - <span prefor="appliUuid">都不能按时打卡</span>
+                  <span class="status status-success">小组长已审批</span>
+                </div>
+                <div class="weui-cell__row" style="clear: both;">
+                  <span prefor="startTime">2018-12-12 09:00</span>
+                  <span class="pull-right hours" prefor="hours">8</span>
+                </div>
+							</div>
+              <div class="weui-cell__ft">
+                <a class="weui-swiped-btn bg-blue" href="javascript:" >修改</a>
+                <a class="weui-swiped-btn bg-orange" href="javascript:" >撤销</a>
+                <a class="weui-swiped-btn bg-green" href="javascript:" >销假</a>
+                <a class="weui-swiped-btn bg-red" href="javascript:" >删除</a>
+              </div>
+						</div>
+						<div class="weui-cell weui-cell_swiped">
+							<div class="weui-cell__bd">
+								<div class="weui-cell__row">
+                  <span prefor="leaveType">外出</span> - <span prefor="appliUuid">都不能按时打卡</span>
+                  <span class="status bg-blue">总监已审批</span>
+                </div>
+                <div class="weui-cell__row" style="clear: both;">
+                  <span prefor="startTime">2018-12-12 09:00</span>
+                  <span class="pull-right hours" prefor="hours">8</span>
+                </div>
+							</div>
+              <div class="weui-cell__ft">
+                <a class="weui-swiped-btn bg-blue" href="javascript:" >修改</a>
+                <a class="weui-swiped-btn bg-orange" href="javascript:" >撤销</a>
+                <a class="weui-swiped-btn bg-green" href="javascript:" >销假</a>
+                <a class="weui-swiped-btn bg-red" href="javascript:" >删除</a>
+              </div>
+						</div>
+						
+						<div class="weui-cell weui-cell_swiped">
+							<div class="weui-cell__bd">
+								<div class="weui-cell__row">
+                  <span prefor="leaveType">外出</span> - <span prefor="appliUuid">都不能按时打卡</span>
+                  <span class="status status-danger">已驳回</span>
+                </div>
+                <div class="weui-cell__row" style="clear: both;">
+                  <span prefor="startTime">2018-12-12 09:00</span>
+                  <span class="pull-right hours" prefor="hours">8</span>
+                </div>
+							</div>
+              <div class="weui-cell__ft">
+                <a class="weui-swiped-btn bg-blue" href="javascript:" >修改</a>
+                <a class="weui-swiped-btn bg-red" href="javascript:" >删除</a>
+              </div>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<script src="vendor/weuijs/1.1.4/weui.js"></script>
+		<script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+		<script src="vendor/jquery.serializejson/jquery.serializejson.min.js"></script>
+		<script src="vendor/jquery-weui-1.2.1/jquery-weui.js"></script>
+		<script src="assets/js/common.js"></script>
+
+		<script>
+
+		</script>
+	</body>
+</html>

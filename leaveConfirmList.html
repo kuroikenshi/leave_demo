@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>请假确认</title>
+  <link rel="stylesheet" href="vendor/weui/1.1.3/weui.min.css">
+  <link rel="stylesheet" href="vendor/jquery-weui-1.2.1/jquery-weui.min.css">
+  <link rel="stylesheet" href="assets/css/weui-my.css">
+  
+  <style>
+    
+    .card {
+    	border: 1px solid #e5e5e5;
+    	border-radius: 5px;
+    	background: #fff;
+    	margin: 8px;
+      margin-bottom: 30px;
+    	overflow: hidden;
+    	box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);
+    }
+    .card .weui-panel:before,
+    .card .weui-panel:after {
+      height: 0px;
+      border-top-width: 0px;
+      border-bottom-width: 0px;
+    }
+    .card .weui-media-box  {
+      padding: 10px;
+    }
+    .card-main {
+      text-align: center;
+      margin: 20px 0 0;
+      font-size: 30px;
+    }
+    .card-main h1 {
+      font-weight: 300;
+      height: 64px;
+      line-height: 64px;
+    }
+    .card-main h1:after {
+      content: "h";
+      font-size: 70%;
+    }
+    .card-title {
+      font-size: 15px;
+    }
+    .card .weui-form-preview__bd {
+      padding: 0px 5px;
+    }
+    
+    .weui-cell__bd .weui-cell {
+      text-align: center;
+    }
+    .weui-cell__bd .weui-cell:nth-of-type(odd) {
+      padding-top: 0;
+    }
+    .weui-cell__bd .weui-cell:nth-of-type(even) {
+      padding-bottom: 0;
+    }
+    .weui-cell__bd .weui-cell:nth-of-type(odd):before {
+      height: 0;
+      border-top-width: 0;
+      border-bottom-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="page searchbar js_show">
+      <!-- <div class="page__hd banner-bg">
+        <h1 class="page__title">请假确认</h1>
+      </div> -->
+      
+      <div class="page__bd">
+        <div class="card">
+          <div class="weui-panel weui-panel_access">
+            <!-- <div class="weui-panel__hd"> -->
+            <!-- </div> -->
+            <div class="weui-panel__bd">
+              <div class="weui-media-box weui-media-box_text">
+                <h4 class="weui-media-box__title card-title">
+                  <span prefor="leaveType">外出</span> - <span prefor="appliUuid">都不能按时打卡</span>
+                  <span class="status status-success">待确认</span>
+                </h4>
+                <div class="card-main">
+                  <p class="weui-media-box__desc"><span prefor="leaveType">外出</span>小时数</p>
+                  <h1>24</h1>
+                </div>
+                <div class="weui-form-preview__bd">
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">开始时间</label>
+                    <span class="weui-form-preview__value" prefor="startTime">2018-12-12 09:00</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">结束时间</label>
+                    <span class="weui-form-preview__value" prefor="endTime">2018-12-14 18:00</span>
+                  </div>
+                  <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label"><span prefor="leaveType">外出</span>理由</label>
+                    <span class="weui-form-preview__value" prefor="reason">参加新员工培训，爬山</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- <div class="weui-media-box weui-media-box_text">
+                <h4 class="weui-media-box__title">标题一</h4>
+                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+              </div>
+              <div class="weui-media-box weui-media-box_text">
+                <h4 class="weui-media-box__title">标题二</h4>
+                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+              </div> -->
+            </div>
+            <div class="weui-panel__ft">
+              <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                <div class="weui-cell__bd">查看详情</div>
+                <span class="weui-cell__ft"></span>
+              </a>    
+            </div>
+            <!-- <div class="weui-cell weui-cell_access">
+            	<!-- <div class="weui-cell__hd">
+            		<i class="icon icon-mail-opened"></i>
+            	</div> - ->
+            	<div class="weui-cell__bd">
+                <div class="weui-cells__title" style="text-align: left; padding-left: 0px;">排班情况</div>
+            		<div class="weui-cell">
+                  <div class="weui-cell__bd">
+                  	2018-12-14
+                  </div>
+                  <div class="weui-cell__bd">
+                    周三
+                  </div>
+                  <div class="weui-cell__bd">
+                    日常
+                  </div>
+                </div>
+            		<div class="weui-cell">
+                  <div class="weui-cell__bd">
+                  	09:00
+                  </div>
+                  <div class="weui-cell__bd">
+                  	-
+                  </div>
+                  <div class="weui-cell__bd">
+                  	18:00
+                  </div>
+                </div>
+                <div class="weui-cell">
+                	<div class="weui-cell__bd">
+                		2018-12-14
+                	</div>
+                	<div class="weui-cell__bd">
+                		周三
+                	</div>
+                	<div class="weui-cell__bd">
+                		日常
+                	</div>
+                </div>
+                <div class="weui-cell">
+                	<div class="weui-cell__bd">
+                		09:00
+                	</div>
+                	<div class="weui-cell__bd">
+                		-
+                	</div>
+                	<div class="weui-cell__bd">
+                		18:00
+                	</div>
+                </div>
+                <div class="weui-cell">
+                	<div class="weui-cell__bd">
+                		2018-12-14
+                	</div>
+                	<div class="weui-cell__bd">
+                		周三
+                	</div>
+                	<div class="weui-cell__bd">
+                		日常
+                	</div>
+                </div>
+                <div class="weui-cell">
+                	<div class="weui-cell__bd">
+                		09:00
+                	</div>
+                	<div class="weui-cell__bd">
+                		-
+                	</div>
+                	<div class="weui-cell__bd">
+                		18:00
+                	</div>
+                </div>
+            	</div>
+            	<!-- <div class="weui-cell__ft">
+            		<span class="new-msg">{{ ((classItem.msgCount === undefined) ? "正在获取新消息个数..." : (classItem.msgCount)) }}</span>
+            	</div> - ->
+            </div> -->
+            <div class="weui-form-preview__ft">
+            		<a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:" onclick="submit();">撤销</a>
+            		<button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary status-success" href="javascript:" onclick="submit();">销假</button>
+            		<!-- <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:" onclick="$.closePopup();">取消</a> -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+        	<div class="weui-panel weui-panel_access">
+        		<!-- <div class="weui-panel__hd"> -->
+        		<!-- </div> -->
+        		<div class="weui-panel__bd">
+        			<div class="weui-media-box weui-media-box_text">
+        				<h4 class="weui-media-box__title card-title">
+        					<span prefor="leaveType">加班</span> - <span prefor="appliUuid">存倒休</span>
+        					<span class="status status-warn">待审批</span>
+        				</h4>
+        				<div class="card-main">
+        					<p class="weui-media-box__desc"><span prefor="leaveType">加班</span>小时数</p>
+        					<h1>8</h1>
+        				</div>
+        				<div class="weui-form-preview__bd">
+        						<div class="weui-form-preview__item">
+        								<label class="weui-form-preview__label">开始时间</label>
+        								<span class="weui-form-preview__value" prefor="startTime">2018-12-12 09:00</span>
+        						</div>
+        						<div class="weui-form-preview__item">
+        								<label class="weui-form-preview__label">结束时间</label>
+        								<span class="weui-form-preview__value" prefor="endTime">2018-12-12 18:00</span>
+        						</div>
+        						<div class="weui-form-preview__item">
+        								<label class="weui-form-preview__label"><span prefor="leaveType">加班</span>理由</label>
+        								<span class="weui-form-preview__value" prefor="reason">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+        						</div>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="weui-panel__ft">
+        			<a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+        				<div class="weui-cell__bd">查看详情</div>
+        				<span class="weui-cell__ft"></span>
+        			</a>    
+        		</div>
+        		<div class="weui-form-preview__ft" style="display: none;">
+        				<a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:" onclick="submit();">撤销</a>
+        				<button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary status-success" href="javascript:" onclick="submit();">销假</button>
+        		</div>
+        	</div>
+        </div>
+        
+        
+        <div class="weui-form-preview" style="margin-bottom: 30px;">
+        	<div class="weui-form-preview__hd">
+        			<em class="weui-form-preview__value" style="text-align: center;">
+        				<span prefor="leaveType">外出</span> - <span prefor="appliUuid">上班不能按时打卡</span>
+        			</em>
+        	</div>
+        	<div class="weui-form-preview__hd">
+        			<label class="weui-form-preview__label">请假小时数</label>
+        			<em class="weui-form-preview__value" prefor="hours">8</em>
+        	</div>
+        	<div class="weui-form-preview__bd">
+        			<div class="weui-form-preview__item">
+        					<label class="weui-form-preview__label">开始时间</label>
+        					<span class="weui-form-preview__value" prefor="startTime">2018-12-12 09:00</span>
+        			</div>
+        			<div class="weui-form-preview__item">
+        					<label class="weui-form-preview__label">结束时间</label>
+        					<span class="weui-form-preview__value" prefor="endTime">2018-12-12 18:00</span>
+        			</div>
+        			<div class="weui-form-preview__item">
+        					<label class="weui-form-preview__label">请假理由</label>
+        					<span class="weui-form-preview__value" prefor="reason">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+        			</div>
+        	</div>
+        	<div class="weui-form-preview__ft">
+        			<button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:" onclick="submit();">销假</button>
+        			<a class="weui-form-preview__btn weui-form-preview__btn_default" style="color: red;" href="javascript:" onclick="submit();">撤销</a>
+        			<!-- <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:" onclick="$.closePopup();">取消</a> -->
+        	</div>
+        </div>
+        
+        
+        <div class="weui-form-preview" style="margin-bottom: 30px;">
+        	<div class="weui-form-preview__hd">
+        			<em class="weui-form-preview__value" style="text-align: center;">
+        				<span prefor="leaveType">外出</span> - <span prefor="appliUuid">上班不能按时打卡</span>
+        			</em>
+        	</div>
+        	<div class="weui-form-preview__hd">
+        			<label class="weui-form-preview__label">请假小时数</label>
+        			<em class="weui-form-preview__value" prefor="hours">8</em>
+        	</div>
+        	<div class="weui-form-preview__bd">
+        			<div class="weui-form-preview__item">
+        					<label class="weui-form-preview__label">开始时间</label>
+        					<span class="weui-form-preview__value" prefor="startTime">2018-12-12 09:00</span>
+        			</div>
+        			<div class="weui-form-preview__item">
+        					<label class="weui-form-preview__label">结束时间</label>
+        					<span class="weui-form-preview__value" prefor="endTime">2018-12-12 18:00</span>
+        			</div>
+        			<div class="weui-form-preview__item">
+        					<label class="weui-form-preview__label">请假理由</label>
+        					<span class="weui-form-preview__value" prefor="reason">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+        			</div>
+        	</div>
+        	<div class="weui-form-preview__ft">
+        			<button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:" onclick="submit();">销假</button>
+        			<a class="weui-form-preview__btn weui-form-preview__btn_default" style="color: red;" href="javascript:" onclick="submit();">撤销</a>
+        			<!-- <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:" onclick="$.closePopup();">取消</a> -->
+        	</div>
+        </div>
+        
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="vendor/weuijs/1.1.4/weui.js"></script>
+  <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+  <script src="vendor/jquery.serializejson/jquery.serializejson.min.js"></script>
+  <script src="vendor/jquery-weui-1.2.1/jquery-weui.js"></script>
+  <script src="assets/js/common.js"></script>
+  
+  <script>
+    var $leaveType = $('input[name=leaveType]');
+    var $appliUuid = $('input[name=appliUuid]');
+    
+    // 请假类别和申请类别的层级数据
+    $.ajax({
+      method: 'get',
+      url: 'data/data_leaveType_appliUuid.json',
+      success: function (data) {
+        initLeaveTypeAppliUuid(data.data);
+      }
+    });
+    
+    // 初始化联动的申请类别和请假类别
+    var leaveType_valueMap = {};           // 请假类别_显示值=>实际值
+    var leaveType_displayValues = [];      // 请假类别_显示值列表
+    var appliUuid_valueMap = {};           // 申请类别_显示值=>实际值
+    var appliUuid_displayValuesMap = {};   // 申请类别_请假类别实际值=>申请类显示值待选项列表
+    function initLeaveTypeAppliUuid(leaveCascade) {
+      
+      // 初始化请假类别、申请类别的数据
+      leaveType_displayValues = leaveCascade.map((ltItem) => {
+        leaveType_valueMap[ltItem.label] = ltItem.value;
+        appliUuid_displayValuesMap[ltItem.value] = ltItem.children.map((auItem) => {
+          appliUuid_valueMap[auItem.label] = auItem.value;
+          return auItem.label
+        });
+        return ltItem.label
+      });
+      console.log('leaveType =>', leaveType_displayValues, leaveType_valueMap);
+      console.log('appliUuid =>', appliUuid_displayValuesMap, appliUuid_valueMap);
+      
+      // 请假类别、申请类别 初始化
+      $('.fake-leaveType').picker({
+        cols: [{
+          textAlign: 'center',
+          values: leaveType_displayValues
+        }],
+        onChange: function (pickerInstance, values) {
+          // 每次显示值更新,同步修改实际值
+          $leaveType.val(leaveType_valueMap[values[0]]);
+          
+          // 每次请假类别改变选项,都要销毁原申请类别对象,重新初始化,待选项值由请假类别实际值决定
+          $('.fake-appliUuid').remove();
+          $appliUuid.before('<input type="text" class="weui-input fake-appliUuid" placeholder="请点击选择类别" readonly />');
+          $('.fake-appliUuid').picker({
+            cols: [{
+              textAlign: 'center',
+              values: appliUuid_displayValuesMap[$leaveType.val()]
+            }],
+            onChange: function (pickerInstance, values) {
+              $appliUuid.val(appliUuid_valueMap[values[0]]);
+            }
+          });
+        }
+      });
+    }
+    
+    // 校验申请类别
+    function selectAppliUuid() {
+      if (!$leaveType.val()) {
+        /* $.notification({
+          title: "提示",
+          text: "请先选择“请假类别”!"
+        }); */
+        weui.topTips('请先选择“请假类别”!', {
+        	duration: 5000,
+        	callback: function callback() {
+        		console.log('on shown callback');
+        	}
+        });
+      }
+    }
+    
+    // 初始化所有多行文本的文本计数器
+    $('.weui-textarea').each(function() {
+      var $t = $(this);
+      var $c = $t.parent().find('.now-count');
+      var $cl = $t.parent().find('.count-limit');
+      var countLimit = $t.attr('count-limit-max');
+      var count = $t.val().length;
+      $c.html(count);
+      $cl.html(countLimit);
+      
+      $t.on('input', function() {
+        count = $t.val().length;
+        $c.html(count);
+        
+        if (count > countLimit) {
+          $c.css('color', 'red');
+        } else {
+          $c.css('color', 'inherit');
+        }
+      });
+    });
+    
+    
+    var yearsAllow = [];
+    var now = new Date();
+    var nowYear = now.getFullYear();
+    for (var i = -1; i <= 1; i++) {
+      yearsAllow.push(nowYear + i);
+    }
+    // 开始时间-初始化
+    $('input[name=startTime]').datetimePicker({
+      years: yearsAllow,
+      onChange: function (pickerInstance, values) {
+        console.log('change', pickerInstance, values);
+      }
+    });
+    
+    // 结束时间-初始化
+    $('input[name=endTime]').datetimePicker({
+      years: yearsAllow,
+      onChange: function (pickerInstance, values) {
+        console.log('change', pickerInstance, values);
+      }
+    });
+    
+    // 校验方法
+    function validate() {
+      // 校验
+      weui.form.validate('#leaveForm', function (error) {
+        console.log(error, !!error);
+        // 有错
+        if (!!error) {
+          weui.topTips($(error.ele).attr('tips'), {
+            duration: 5000,
+            callback: function callback() {
+              console.log('on shown callback');
+            }
+          });
+          
+          $(error.ele).closest('.invalid-event-handler').one('click', function() {
+            $(this).removeClass('weui-cell_warn');
+          });
+        }
+        // 无错
+        else {
+          popup_preview();
+        }
+      });
+    }
+    
+    // 弹出预览层
+    function popup_preview() {
+      var $form = $(event.target).closest('form');
+      var dataArr = $form.serializeArray();
+      $.each(dataArr, function(idx) {
+      	var name = dataArr[idx].name;
+      	var val = dataArr[idx].value;
+      	// 针对leaveType, appliUuid的特殊处理
+      	if (['leaveType', 'appliUuid'].indexOf(name) != -1) {
+      		$('[prefor=' + name + ']').html($('.fake-' + name).val());
+      	}
+      	// 其他
+      	else {
+      		$('[prefor=' + name + ']').html(val);
+      	}
+      });
+      
+      // TODO: 计算时间-由后台给
+      $.ajax({
+      	method: 'get',
+      	url: 'data/data_getHours.json',
+      	success: function(r) {
+      		// 模拟异步延时
+      		setTimeout(function() {
+      			$('[prefor=hours]').html(r.hours);
+      		}, 1000);
+      	}
+      });
+      
+      $("#preview").popup();
+    }
+  
+    // 提交的方法
+    function submit() {
+      var data = $('#leaveForm').serializeJSON();
+      console.log(data);
+      
+      var loading = weui.loading('提交中...');
+      
+      // TODO: 发送数据
+      $.ajax({
+        method: 'get',
+        url: ['data/data_applyLeave_success.json', 'data/data_applyLeave_failed.json'][Math.round(Math.random())],
+        success: function(data) {
+          if (data.status === 'OK') {
+            weui.toast('申请成功', 3000);
+            $.closePopup();
+            
+            setTimeout(function() {
+              location.href = 'homepage.html';
+            }, 3000);
+          }
+          else {
+            weui.topTips('申请失败: ' + data.msg, {
+              duration: 10000
+            });
+          }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          weui.topTips('提交失败: ' + errorThrown, {
+            duration: 10000
+          });
+        },
+        complete: function() {
+          loading.hide();
+        }
+      });
+      
+      
+    }
+  </script>
+</body>
+</html>
+
+
