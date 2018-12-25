@@ -2,11 +2,17 @@ body, html {
 	height: 100%;
 	-webkit-tap-highlight-color: transparent;
 }
+
 body {
 	font-family: -apple-system-font,Helvetica Neue,Helvetica,Arial,sans-serif;
 	background-color: #fbf9fe;
 	touch-action: none; /* 解决datetimePicker滚动报错。https://blog.csdn.net/m0_38082783/article/details/78123323 */
   font-size: 14px;
+}
+
+/* 手机端滚动增加惯性 */
+* {
+  -webkit-overflow-scrolling: touch;
 }
 
 .weui-textarea {

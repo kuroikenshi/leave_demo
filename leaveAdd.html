@@ -24,7 +24,7 @@
           <p>申请类型</p>
         </div>
         <div class="weui-cells weui-cells_form">
-          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);" onclick="document.activeElement.blur();">
             <div class="weui-cell__hd"><label class="weui-label">请假类别</label></div>
             <div class="weui-cell__bd">
               <input type="text" class="weui-input fake-leaveType" placeholder="请点击选择类别" readonly />
@@ -32,7 +32,7 @@
             </div>
             <div class="weui-cell__ft"> <i class="weui-icon-warn"></i> </div>
           </a>
-          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);" onclick="selectAppliUuid();">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);" onclick="document.activeElement.blur(); selectAppliUuid();">
             <div class="weui-cell__hd"><label class="weui-label">申请类别</label></div>
             <div class="weui-cell__bd">
               <input type="hidden" class="weui-input" name="appliUuid" id="appliUuid" required tips="请选择申请类别" />
@@ -48,7 +48,7 @@
           <p>时间范围</p>
         </div>
         <div class="weui-cells weui-cells_form">
-          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);" onclick="document.activeElement.blur();">
             <div class="weui-cell__hd"><label class="weui-label">开始时间</label></div>
             <div class="weui-cell__bd">
               <input type="text" class="weui-input" name="startTime" id="startTime" placeholder="请点击选择开始时间" required tips="请选择开始时间" />
@@ -57,7 +57,7 @@
               <i class="weui-icon-warn"></i>
             </div>
           </a>
-          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);">
+          <a class="weui-cell weui-cell_access invalid-event-handler" href="javascript: void(0);" onclick="document.activeElement.blur();">
             <div class="weui-cell__hd"><label class="weui-label">结束时间</label></div>
             <div class="weui-cell__bd">
               <input type="text" class="weui-input" name="endTime" id="endTime" placeholder="请点击选择结束时间" required tips="请选择结束时间" />
@@ -90,7 +90,7 @@
         <div class="weui-cells no-line">
           <div class="weui-cell">
             <div class="weui-cell__bd">
-              <a href="javascript: void(0);" class="weui-btn weui-btn_primary" onclick="validate();">预览并提交请假</a>
+              <a href="javascript: void(0);" class="weui-btn weui-btn_primary" onclick="document.activeElement.blur(); validate();">预览并提交请假</a>
             </div>
           </div>
         </div>
