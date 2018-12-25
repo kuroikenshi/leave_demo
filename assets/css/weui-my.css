@@ -182,3 +182,45 @@ body {
 .weui-swiped-btn_success {
   background-color: #09B78D
 }
+
+/* 详细确认head的关键字，与body统一大小*/
+.weui-form-preview__hd .weui-form-preview__label {
+  font-size: .9em;
+}
+/* 详情确认的值，黑字 */
+.weui-form-preview__value {
+  color: #000;
+}
+
+/* 详情确认body下一个head加上分隔线 */
+.weui-form-preview__bd + .weui-form-preview__hd:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e5e5e5;
+  color: #e5e5e5;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  left: 15px;
+}
+/* 详情确认body下的第二个body加上分隔线 */
+.weui-form-preview__bd + .weui-form-preview__bd:before {
+  content: " ";
+  position: relative;
+  display: block;
+  left: 0;
+  top: -12px;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #e5e5e5;
+  color: #e5e5e5;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+}
