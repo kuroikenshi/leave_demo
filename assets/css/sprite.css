@@ -1,0 +1,172 @@
+.zoom-27-46 {
+    zoom: 58.7%;
+}
+
+.icon-style-1-attendance-confirm{
+    background-image: url("sprite.png");
+    background-position: -150px -203px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-attendance{
+    background-image: url("sprite.png");
+    background-position: -50px -153px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-face-recognition{
+    background-image: url("sprite.png");
+    background-position: -100px -203px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-fingerprint{
+    background-image: url("sprite.png");
+    background-position: -50px -203px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-leave-apply{
+    background-image: url("sprite.png");
+    background-position: 0px -203px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-leave-confirm{
+    background-image: url("sprite.png");
+    background-position: -204px -150px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-leave-list-agree{
+    background-image: url("sprite.png");
+    background-position: 0px -153px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-leave-list-global{
+    background-image: url("sprite.png");
+    background-position: -204px -50px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-leave-list-normal{
+    background-image: url("sprite.png");
+    background-position: -204px 0px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-leave-list-reject{
+    background-image: url("sprite.png");
+    background-position: -150px -153px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-work-schedule-change{
+    background-image: url("sprite.png");
+    background-position: -100px -153px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-1-work-schedule-checkin{
+    background-image: url("sprite.png");
+    background-position: -204px -100px;
+    width: 45px;
+    height: 45px;
+}
+
+.icon-style-2-attendance-confirm{
+    background-image: url("sprite.png");
+    background-position: 0px 0px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-attendance{
+    background-image: url("sprite.png");
+    background-position: -153px -102px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-face-recognition{
+    background-image: url("sprite.png");
+    background-position: -153px -51px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-fingerprint{
+    background-image: url("sprite.png");
+    background-position: -153px 0px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-leave-apply{
+    background-image: url("sprite.png");
+    background-position: -102px -102px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-leave-confirm{
+    background-image: url("sprite.png");
+    background-position: -51px -102px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-leave-list-agree{
+    background-image: url("sprite.png");
+    background-position: 0px -102px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-leave-list-global{
+    background-image: url("sprite.png");
+    background-position: -102px -51px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-leave-list-reject{
+    background-image: url("sprite.png");
+    background-position: -102px 0px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-work-schedule-change{
+    background-image: url("sprite.png");
+    background-position: -51px -51px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-style-2-work-schedule-checkin{
+    background-image: url("sprite.png");
+    background-position: 0px -51px;
+    width: 46px;
+    height: 46px;
+}
+
+.icon-tyle-2-leave-list-normal{
+    background-image: url("sprite.png");
+    background-position: -51px 0px;
+    width: 46px;
+    height: 46px;
+}
+

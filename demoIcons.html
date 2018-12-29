@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>首页</title>
+	<link rel="stylesheet" href="vendor/weui/1.1.3/weui.min.css">
+	<link rel="stylesheet" href="vendor/jquery-weui-1.2.1/jquery-weui.min.css">
+	<link rel="stylesheet" href="assets/css/weui-my.css">
+	<link rel="stylesheet" href="assets/css/xdf-leave-icons.css">
+	<style>
+	</style>
+</head>
+<body>
+	<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+
+	<div class="container" id="container">
+		<div class="page tabbar grid js_show">
+      <div class="weui-tab">
+        <div class="weui-tab__panel">
+          
+          <!-- page-body -->
+          <div class="page__bd">
+            <div class="weui-cells__title">
+            	<p>考勤</p>
+            </div>
+            
+            <div class="weui-grids">
+            	<a href="attendanceList.html" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-lg">
+                  <i class="xdf-icon xdf-icon-lg xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">考勤列表</p>
+            	</a>
+            	<a href="attendanceList.html" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-lg">
+                  <i class="xdf-icon xdf-icon-lg xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">考勤列表</p>
+            	</a>
+            	<a href="attendanceList.html" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-lg">
+                  <i class="xdf-icon xdf-icon-lg xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">考勤列表</p>
+            	</a>
+              
+            	<a href="javascript:;" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-md">
+                  <i class="xdf-icon xdf-icon-md xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">考勤确认</p>
+            	</a>
+              
+            	<a href="javascript:;" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-md">
+                  <i class="xdf-icon xdf-icon-md xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">考勤确认</p>
+            	</a>
+              
+            	<a href="javascript:;" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-md">
+                  <i class="xdf-icon xdf-icon-md xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">考勤确认</p>
+            	</a>
+              
+              <a href="javascript:;" class="weui-grid">
+              	<div class="weui-grid__icon xdf-icon-sm">
+              		<i class="xdf-icon xdf-icon-sm xdf-icon-attendent"></i>
+              	</div>
+              	<p class="weui-grid__label">指纹记录</p>
+              </a>
+            	<a href="javascript:;" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-sm">
+                  <i class="xdf-icon xdf-icon-sm xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">指纹记录</p>
+            	</a>
+            	<a href="javascript:;" class="weui-grid">
+            		<div class="weui-grid__icon xdf-icon-sm">
+                  <i class="xdf-icon xdf-icon-sm xdf-icon-attendent"></i>
+            		</div>
+            		<p class="weui-grid__label">指纹记录</p>
+            	</a>
+              
+              <a href="javascript:;" class="weui-grid">
+              	<div class="weui-grid__icon xdf-icon-xs">
+              		<i class="xdf-icon xdf-icon-xs xdf-icon-attendent"></i>
+              	</div>
+              	<p class="weui-grid__label">考勤确认</p>
+              </a>
+              <a href="javascript:;" class="weui-grid">
+              	<div class="weui-grid__icon xdf-icon-xs">
+              		<i class="xdf-icon xdf-icon-xs xdf-icon-attendent"></i>
+              	</div>
+              	<p class="weui-grid__label">考勤确认</p>
+              </a>
+              <a href="javascript:;" class="weui-grid">
+              	<div class="weui-grid__icon xdf-icon-xs">
+              		<i class="xdf-icon xdf-icon-xs xdf-icon-attendent"></i>
+              	</div>
+              	<p class="weui-grid__label">考勤确认</p>
+              </a>
+            </div>
+            
+            <div class="weui-cells__title">
+            	<p>请假</p>
+            </div>
+            
+            <div class="weui-grids four-cells-each-row">
+            	<a href="leaveAdd.html" class="weui-grid">
+            		<div class="weui-grid__icon">
+            			<img src="assets/images/icon_tabbar.png" alt="">
+            		</div>
+            		<p class="weui-grid__label">申请请假</p>
+            	</a>
+            	<a href="leaveConfirmList.html" class="weui-grid">
+            		<div class="weui-grid__icon">
+            			<img src="assets/images/icon_tabbar.png" alt="">
+            		</div>
+            		<p class="weui-grid__label">请假确认</p>
+            	</a>
+            	<a href="leaveAllList.html" class="weui-grid">
+            		<div class="weui-grid__icon">
+            			<img src="assets/images/icon_tabbar.png" alt="">
+            		</div>
+            		<p class="weui-grid__label">正常假单</p>
+            	</a>
+            	<a href="javascript:;" class="weui-grid">
+            		<div class="weui-grid__icon">
+            			<img src="assets/images/icon_tabbar.png" alt="">
+            		</div>
+            		<p class="weui-grid__label">回退假单</p>
+            	</a>
+              
+            </div>
+            
+            
+            <div class="weui-cells__title">
+            	<p>DEMO</p>
+            </div>
+            <div class="weui-grids four-cells-each-row">
+            	<a href="demoIcons.html" class="weui-grid">
+            		<div class="weui-grid__icon">
+            			<img src="assets/images/icon_tabbar.png" alt="">
+            		</div>
+            		<p class="weui-grid__label">图标测试</p>
+            	</a>
+            </div>
+            
+          </div>
+          <!-- END OF .page__bd -->
+        </div>
+        <!-- END OF .weui-tab__panel -->
+        
+        <!-- tabbar -->
+        <div class="weui-tabbar">
+        	<a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+        		<span style="display: inline-block;position: relative;">
+        			<img src="assets/images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        			<span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+        		</span>
+        		<p class="weui-tabbar__label">微信</p>
+        	</a>
+        	<a href="javascript:;" class="weui-tabbar__item">
+        		<img src="assets/images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        		<p class="weui-tabbar__label">通讯录</p>
+        	</a>
+        	<a href="javascript:;" class="weui-tabbar__item">
+        		<span style="display: inline-block;position: relative;">
+        			<img src="assets/images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        			<span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+        		</span>
+        		<p class="weui-tabbar__label">发现</p>
+        	</a>
+        	<a href="javascript:;" class="weui-tabbar__item">
+        		<img src="assets/images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        		<p class="weui-tabbar__label">我</p>
+        	</a>
+        </div>
+        
+      </div>
+		</div>
+	</div>
+
+	<script src="vendor/weuijs/1.1.4/weui.js"></script>
+	<script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+	<script src="vendor/jquery-weui-1.2.1/jquery-weui.min.js"></script>
+	<script src="assets/js/common.js"></script>
+</body>
+</html>
+
+
